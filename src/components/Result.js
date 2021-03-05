@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import "../Result.css";
 
 function Result(props) {
     const {

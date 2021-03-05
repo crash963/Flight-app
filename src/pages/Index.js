@@ -39,7 +39,7 @@ function Index() {
 
     console.log(data.data);
     setOldFlight(flightSearch);
-    setResult(data.data.slice(offset, offset + 5));
+    setResult(data.data.slice(offset, offset + 8));
   }
 
   useEffect(() => {
@@ -54,16 +54,16 @@ function Index() {
       {offset === 0 ? null : (
         <button
           onClick={() => {
-            setOffset(offset - 5);
+            setOffset(offset - 8);
           }}
         >
           Back
         </button>
       )}
-      {result.length < 5 ? null : (
+      {result.length < 8 ? null : (
         <button
           onClick={() => {
-            setOffset(offset + 5);
+            setOffset(offset + 8);
           }}
         >
           Next

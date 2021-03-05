@@ -56,8 +56,9 @@ function Index() {
           onClick={() => {
             setOffset(offset - 8);
           }}
+          className="pageBtn"
         >
-          Back
+          Previous
         </button>
       )}
       {result.length < 8 ? null : (
@@ -65,6 +66,7 @@ function Index() {
           onClick={() => {
             setOffset(offset + 8);
           }}
+          className="pageBtn"
         >
           Next
         </button>

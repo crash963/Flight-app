@@ -50,7 +50,7 @@ function Index() {
 
   return (
     <div>
-      <Search fetchData={fetchData} />
+      <Search fetchData={fetchData} setOffset={setOffset} />
       {offset === 0 ? null : (
         <button
           onClick={() => {

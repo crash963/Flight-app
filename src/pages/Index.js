@@ -6,11 +6,11 @@ function Index() {
     const [result, setResult] = useState({});
     async function fetchData() {
         const response = await fetch(
-            "https://api.skypicker.com/flights?fly_from=PRG&fly_to=JFK&date_from=03/04/2021&date_to=15/04/2021"
+            "https://api.skypicker.com/flights?fly_from=PRG&fly_to=JFK&date_from=03/04/2021&date_to=15/04/2021&partner=picky"
         );
         const data = await response.json();
-        console.log(data);
-        setResult(data);
+        console.log(data.data[0]);
+        setResult(data.data[0]);
     }
 
     useEffect(() => {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 import Result from "../components/Result";
 import Search from "../components/Search";
 
@@ -6,8 +7,10 @@ function Index() {
   const [result, setResult] = useState(null);
   const [oldFlight, setOldFlight] = useState(null);
   const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   async function fetchData(flightSearch) {
+    setLoading(true);
     const response = await fetch(
       `https://api.skypicker.com/flights?fly_from=city:${
         flightSearch.flyFrom
@@ -27,6 +30,8 @@ function Index() {
       const airlineName = carriers.find((carrier) => carrier.id === id);
       item.airlineName = airlineName.name;
     });
+
+    setLoading(false);
 
     console.log(data.data);
     setOldFlight(flightSearch);
@@ -61,6 +66,7 @@ function Index() {
           Next
         </button>
       )}
+      {loading ? <Loader /> : null}
       {result ? (
         <div className="results">
           {result

@@ -16,8 +16,9 @@ function Search(props) {
         onChange={(e) => {
           setFlyFrom(e.target.value);
         }}
-        name="flyFrom"
+        name="flyFrom" 
       >
+
         <option value="VLC">Valencia</option>
         <option value="BCN">Barcelona</option>
         <option value="MAD">Madrid</option>
@@ -32,7 +33,7 @@ function Search(props) {
         }}
         name="flyTo"
       >
-        <option value="PRG">Prague</option>
+        <option value="PRG" >Prague</option>
         <option value="BER">Berlin</option>
         <option value="WAW">Warsaw</option>
         <option value="PED">Pardubice</option>

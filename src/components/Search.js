@@ -68,6 +68,14 @@ function Search(props) {
         type="date"
         name="dateTo"
       />
+      <label htmlFor="directFlight">Only Direct Flights</label>
+      <input
+        type="checkbox"
+        name="directFlight"
+        onChange={(e) => {
+          setDirectFlight(e.target.checked);
+        }}
+      />
       <input
         type="submit"
         value="find"
@@ -80,13 +88,6 @@ function Search(props) {
             dateTo: dateTo,
             directFlight: directFlight,
           });
-        }}
-      />
-      <input
-        type="checkbox"
-        name="directFlight"
-        onChange={(e) => {
-          setDirectFlight(e.target.checked);
         }}
       />
     </form>

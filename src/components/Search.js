@@ -7,18 +7,43 @@ function Search(props) {
   const [flyTo, setFlyTo] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [directFlight, setDirectFlight] = useState(false);
 
   return (
     <form>
       <label htmlFor="flyFrom">From: </label>
-      <input
+      <select
+        onChange={(e) => {
+          setFlyFrom(e.target.value);
+        }}
+        name="flyFrom"
+      >
+        <option value="VLC">Valencia</option>
+        <option value="BCN">Barcelona</option>
+        <option value="MAD">Madrid</option>
+        <option value="MIL">Milano</option>
+        <option value="ATH">Athens</option>
+      </select>
+
+      <label htmlFor="flyTo">To: </label>
+      <select
+        onChange={(e) => {
+          setFlyTo(e.target.value);
+        }}
+        name="flyTo"
+      >
+        <option value="PRG">Prague</option>
+        <option value="BER">Berlin</option>
+        <option value="WAW">Warsaw</option>
+        <option value="PED">Pardubice</option>
+      </select>
+      {/*  <input
         onChange={(e) => {
           setFlyFrom(e.target.value);
         }}
         type="text"
         name="from"
       />
-      <label htmlFor="flyTo">To: </label>
       <input
         onChange={(e) => {
           setFlyTo(e.target.value);
@@ -26,7 +51,7 @@ function Search(props) {
         }}
         type="text"
         name="to"
-      />
+      /> */}
       <label htmlFor="dateFrom">Date From: </label>
       <input
         onChange={(e) => {
@@ -53,7 +78,15 @@ function Search(props) {
             flyTo: flyTo,
             dateFrom: dateFrom,
             dateTo: dateTo,
+            directFlight: directFlight,
           });
+        }}
+      />
+      <input
+        type="checkbox"
+        name="directFlight"
+        onChange={(e) => {
+          setDirectFlight(e.target.checked);
         }}
       />
     </form>

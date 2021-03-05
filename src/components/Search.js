@@ -1,6 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { DateTime } from "luxon";
+import "../Search.css";
 
 function Search(props) {
     const [flyFrom, setFlyFrom] = useState("VLC");
@@ -10,7 +11,7 @@ function Search(props) {
     const [directFlight, setDirectFlight] = useState(false);
 
     return (
-        <form>
+        <form className="search-form">
             <label htmlFor="flyFrom">From: </label>
             <select
                 onChange={(e) => {
@@ -83,8 +84,9 @@ function Search(props) {
                 }}
             />
             <input
+                className="search-button"
                 type="submit"
-                value="find"
+                value="Find"
                 onClick={(e) => {
                     e.preventDefault();
                     props.fetchData({

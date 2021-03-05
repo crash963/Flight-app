@@ -17,11 +17,10 @@ function Index() {
         flightSearch.directFlight ? `&max_stopovers=0` : ""
       }`
     );
+
     const data = await response.json();
-    console.log(data.data);
     setOldFlight(flightSearch);
     setResult(data.data.slice(offset, offset + 5));
-    console.log(result);
   }
 
   useEffect(() => {
@@ -33,6 +32,7 @@ function Index() {
   return (
     <div>
       <Search fetchData={fetchData} />
+
       {offset === 0 ? null : (
         <button
           onClick={() => {
@@ -42,15 +42,17 @@ function Index() {
           Back
         </button>
       )}
+
       {offset === 95 ? null : (
         <button
           onClick={() => {
-            setOffset(offset - 5);
+            setOffset(offset + 5);
           }}
         >
           Next
         </button>
       )}
+
       {result ? (
         <div className="results">
           {result

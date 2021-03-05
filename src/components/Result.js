@@ -19,11 +19,12 @@ function Result(props) {
                 Flight no.: {route[0].airline}
                 {route[0].flight_no}
             </h4>
-            <p>Price: €{price}</p>
             <p>
                 {DateTime.fromSeconds(dTimeUTC).toFormat("dd.MM.y hh:mm")} -{" "}
                 {DateTime.fromSeconds(aTimeUTC).toFormat("dd.MM.y hh:mm")}
             </p>
+            <p>Price: €{price}</p>
+            
             <p>Flight duration: {fly_duration}</p>
             <p>From: {cityFrom}</p>
             <p>To: {cityTo}</p>

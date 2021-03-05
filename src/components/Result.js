@@ -26,6 +26,7 @@ function Result(props) {
       <p>Flight duration: {fly_duration}</p>
       <p>From: {cityFrom}</p>
       <p>To: {cityTo}</p>
+      <p>Number of stopovers: {props.result.route.length -1}</p>
     </div>
   );
 }

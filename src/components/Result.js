@@ -9,6 +9,7 @@ function Result(props) {
         price,
         fly_duration,
         route,
+        airlineName,
     } = props.result;
     return (
         <div className="flight-result">
@@ -25,6 +26,7 @@ function Result(props) {
             <p>Flight duration: {fly_duration}</p>
             <p>From: {cityFrom}</p>
             <p>To: {cityTo}</p>
+            <p>Airline: {airlineName}</p>
             <p>Number of stopovers: {route.length - 1}</p>
         </div>
     );

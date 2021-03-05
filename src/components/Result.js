@@ -15,7 +15,7 @@ function Result(props) {
     } = props.result;
     return (
         <div className="flight-result">
-            <h4>Flight no.: {flight_no}</h4>
+            <h4>Flight no.: {props.result.route[0].flight_no}</h4>
             <p>Price: €{price}</p>
             <p>
                 {DateTime.fromSeconds(dTimeUTC).toFormat("dd.MM.y hh:mm")} -{" "}

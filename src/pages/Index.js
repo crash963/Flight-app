@@ -19,8 +19,19 @@ function Index() {
     );
 
     const data = await response.json();
+
+    const response2 = await fetch("https://api.skypicker.com/carriers");
+    const carriers = await response2.json();
+    data.data.forEach((item) => {
+      const id = item.route[0].airline;
+      const airlineName = carriers.find((carrier) => carrier.id === id);
+      item.airlineName = airlineName.name;
+    });
+
+    console.log(data.data);
     setOldFlight(flightSearch);
     setResult(data.data.slice(offset, offset + 5));
+    console.log(result);
   }
 
   useEffect(() => {
@@ -32,7 +43,6 @@ function Index() {
   return (
     <div>
       <Search fetchData={fetchData} />
-
       {offset === 0 ? null : (
         <button
           onClick={() => {
@@ -42,7 +52,6 @@ function Index() {
           Back
         </button>
       )}
-
       {offset === 95 ? null : (
         <button
           onClick={() => {
@@ -52,7 +61,6 @@ function Index() {
           Next
         </button>
       )}
-
       {result ? (
         <div className="results">
           {result

@@ -1,9 +1,11 @@
+import { DateTime } from "luxon";
+
 function Result(props) {
     const {
         flyFrom,
         flyTo,
-        dateFrom,
-        dateTo,
+        dTime,
+        aTime,
         flightNo,
         cityFrom,
         cityTo,
@@ -12,7 +14,8 @@ function Result(props) {
         <div className="flight-result">
             <h4>Flight no.: {flightNo}</h4>
             <p>
-                {dateFrom} - {dateTo}
+                {DateTime.fromSeconds(dTime).toFormat("dd.MM.y hh:mm")} -{" "}
+                {DateTime.fromSeconds(aTime).toFormat("dd.MM.y hh:mm")}
             </p>
             <p>From: {cityFrom}</p>
             <p>To: {cityTo}</p>

@@ -4,12 +4,16 @@ import Result from "../components/Result";
 import Search from "../components/Search";
 
 function Index() {
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState([]);
   const [oldFlight, setOldFlight] = useState(null);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
 
   async function fetchData(flightSearch) {
+    if (flightSearch === null) {
+      console.log("flightSearch is null");
+      return;
+    }
     setLoading(true);
     const response = await fetch(
       `https://api.skypicker.com/flights?fly_from=city:${
@@ -36,7 +40,6 @@ function Index() {
     console.log(data.data);
     setOldFlight(flightSearch);
     setResult(data.data.slice(offset, offset + 5));
-    console.log(result);
   }
 
   useEffect(() => {
@@ -57,7 +60,7 @@ function Index() {
           Back
         </button>
       )}
-      {offset === 95 ? null : (
+      {result.length < 5 ? null : (
         <button
           onClick={() => {
             setOffset(offset + 5);
